@@ -10,7 +10,10 @@ import {
   LinkTool,
   Separator,
   UnorderedListTool,
-  OrderedListTool
+  OrderedListTool,
+  TextAlignTool,
+  IconButton,
+  CodeTool
 } from "@sparrowengg/twigs-react";
 import {
   BoldIcon,
@@ -18,7 +21,10 @@ import {
   UnderlineIcon,
   LinkIcon,
   UnorderedListIcon,
-  OrderedListIcon
+  OrderedListIcon,
+  TextAlignLeftIcon,
+  AttachmentIcon,
+  CodeIcon
 } from "@sparrowengg/twigs-react-icons";
 import {
   useState,
@@ -38,6 +44,7 @@ import DraggableBlockPlugin from "./plugins/draggable-block-plugin";
 import RedoUndoPlugin from "./plugins/redo-undo-plugin";
 import ComponentPickerPlugin from "./plugins/component-picker-plugin";
 import PlaceholderPlugin from "./plugins/placeholder-plugin";
+import ComponentIcon from "./icons/component-icon";
 
 const App = () => {
   const [value, setValue] =
@@ -101,44 +108,62 @@ const App = () => {
               <RedoUndoPlugin />
               <BoldTool
                 buttonProps={{
-                  icon: <BoldIcon />
+                  icon: (
+                    <BoldIcon
+                      size={20}
+                      color="#64748B"
+                    />
+                  )
                 }}
               />
               <ItalicTool
                 buttonProps={{
-                  icon: <ItalicsIcon />
+                  icon: (
+                    <ItalicsIcon
+                      size={20}
+                      color="#64748B"
+                    />
+                  )
                 }}
               />
               <UnderlineTool
                 buttonProps={{
                   icon: (
-                    <UnderlineIcon />
+                    <UnderlineIcon
+                      size={20}
+                      color="#64748B"
+                    />
                   )
                 }}
               />
-              <LinkTool
+              <TextAlignTool
                 buttonProps={{
-                  icon: <LinkIcon />
-                }}
-              />
-              <Separator
-                orientation="vertical"
-                css={{
-                  height:
-                    "16px !important"
+                  icon: (
+                    <TextAlignLeftIcon
+                      size={20}
+                      color="#64748B"
+                    />
+                  )
                 }}
               />
               <UnorderedListTool
                 buttonProps={{
                   icon: (
-                    <UnorderedListIcon />
+                    <UnorderedListIcon
+                      size={20}
+                      strokeWidth={1.5}
+                      color="#64748B"
+                    />
                   )
                 }}
               />
               <OrderedListTool
                 buttonProps={{
                   icon: (
-                    <OrderedListIcon />
+                    <OrderedListIcon
+                      size={20}
+                      color="#64748B"
+                    />
                   )
                 }}
               />
@@ -148,6 +173,45 @@ const App = () => {
                   height:
                     "16px !important"
                 }}
+              />
+              <IconButton
+                icon={
+                  <AttachmentIcon />
+                }
+                variant="ghost"
+                color="default"
+              />
+              <LinkTool
+                buttonProps={{
+                  icon: (
+                    <LinkIcon
+                      size={20}
+                      color="#64748B"
+                    />
+                  )
+                }}
+              />
+              <Separator
+                orientation="vertical"
+                css={{
+                  height:
+                    "16px !important"
+                }}
+              />
+              <CodeTool
+                buttonProps={{
+                  icon: (
+                    <CodeIcon
+                      size={20}
+                      color="#64748B"
+                    />
+                  )
+                }}
+              />
+              <IconButton
+                icon={<ComponentIcon />}
+                variant="ghost"
+                color="default"
               />
             </Flex>
           </EditorToolbar>
@@ -156,7 +220,7 @@ const App = () => {
               css: {
                 ".editor": {
                   border:
-                    "none !important",
+                    "none !important"
                 },
                 "div[contenteditable]":
                   {
@@ -168,8 +232,8 @@ const App = () => {
                     marginTop: "118px"
                   },
                 "div[role=textbox]": {
-                  minHeight:
-                    "300px !important",
+                  maxWidth: "640px",
+                  width: "640px",
                   padding:
                     "0 0 $6 0 !important",
                   lineHeight: "28px",

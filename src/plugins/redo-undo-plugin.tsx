@@ -1,7 +1,8 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import {
   IconButton,
-  Flex
+  Flex,
+  Separator
 } from "@sparrowengg/twigs-react";
 import {
   RedoIcon,
@@ -39,6 +40,13 @@ const RedoUndoPlugin = () => {
         }}
         color="secondary"
         variant="ghost"
+      />
+      <Separator
+        orientation="vertical"
+        css={{
+          background: "#64748B26",
+          height: "16px !important",
+        }}
       />
     </Flex>
   );

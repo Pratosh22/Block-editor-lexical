@@ -1,8 +1,7 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import {
   $getRoot,
-  $createParagraphNode,
-  $createTextNode
+  $createParagraphNode
 } from "lexical";
 import { $createHeadingNode } from "@lexical/rich-text";
 import {
